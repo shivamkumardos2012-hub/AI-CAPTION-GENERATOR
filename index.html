@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Caption SaaS</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="dashboard">
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>AI SaaS</h2>
+    <div class="nav-item active" onclick="showGenerate()">Generate</div>
+    <div class="nav-item" onclick="showHistory()">History</div>
+      <div class="nav-item" onclick="window.open('third.html', '_blank')">
+    Settings
+</div>
+        </div>
+  <!-- Main Content -->
+  <div class="main">
+
+    <!-- GENERATE PAGE -->
+    <div id="generatePage">
+
+      <div class="header">
+        <h1>Instagram Caption Generator</h1>
+      </div>
+
+      <div class="content">
+
+        <!-- Input Section -->
+        <div class="card input-card">
+          <input type="text" id="business" placeholder="Business Type">
+          <textarea id="offer" placeholder="Offer / Product"></textarea>
+          <select id="tone">
+            <option>Professional</option>
+            <option>Funny</option>
+            <option>Luxury</option>
+            <option>Sales</option>
+          </select>
+          <button onclick="generateCaptions()">Generate</button>
+        </div>
+
+        <!-- Result Section -->
+        <div class="card result-card">
+          <div id="loader" class="loader hidden"></div>
+          <div id="results"></div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- HISTORY PAGE -->
+    <div id="historyPage" class="hidden">
+      <div class="header">
+        <h1>Copied History</h1>
+        <button onclick="clearHistory()">Clear History</button>
+      </div>
+      <div id="historyContainer" class="history-grid"></div>
+    </div>
+
+  </div>
+
+</div>
+<div class="footer-section">
+    <a href="main.html">
+  <button class="premium-btn" onclick="footerAction()">
+    🚀 Upgrade to Pro
+  </button>
+  </a>
+</div>
+<style>
+body{
+  margin:0;
+  font-family:Segoe UI;
+  background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);
+  color:white;
+  text-align:center;
+}
+
+h1{margin-top:30px;}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+  padding:40px;
+}
+
+button{
+  padding:20px;
+  border:none;
+  border-radius:15px;
+  background:linear-gradient(90deg,#ff512f,#dd2476);
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  transform:scale(1.05);
+}
+</style>
+</head>
+
+<body>
+
+<h1>🔥 AI Creator SaaS Dashboard</h1>
+
+<div class="grid">
+
+<button onclick="go('trending.html')">Trending Hashtag Finder</button>
+<button onclick="go('bio.html')">Instagram Bio Generator</button>
+<button onclick="go('calendar.html')">Content Calendar Planner</button>
+<button onclick="go('engagement.html')">Engagement Prediction</button>
+<button onclick="go('competitor.html')">Competitor Caption Analyze</button>
+<button onclick="go('tone.html')">Caption Tone Slider</button>
+<button onclick="go('language.html')">Multi Language Support</button>
+
+</div>
+<div>
+    <a href="second.html">
+      <button class="pro-btn">ALL FUNCTION</button>
+      </a>
+      <a href="first.html">
+        <button class="pro-btn">reel script </button>
+      </a>
+</div>
+
+<script>
+function go(page){
+  window.location.href = page;
+}
+</script>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Viral Reel Script Generator - Premium</title>
+
+<style>
+body{
+  margin:0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg,#0f0c29,#302b63,#24243e);
+  color:white;
+}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:20px;
+}
+
+h1{
+  text-align:center;
+  font-size:32px;
+  margin-bottom:30px;
+}
+
+.card{
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border-radius:20px;
+  padding:20px;
+  margin-bottom:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.4);
+  animation:fadeIn 0.6s ease-in-out;
+}
+
+input, select{
+  width:100%;
+  padding:12px;
+  margin:8px 0;
+  border:none;
+  border-radius:10px;
+  background:#1c1c3c;
+  color:white;
+}
+
+button{
+  padding:12px 20px;
+  border:none;
+  border-radius:10px;
+  background:linear-gradient(90deg,#ff512f,#dd2476);
+  color:white;
+  cursor:pointer;
+  margin-top:10px;
+  transition:0.3s;
+}
+
+button:hover{
+  transform:scale(1.05);
+}
+
+.result-item{
+  margin-top:15px;
+  padding:15px;
+  background:#1a1a2e;
+  border-radius:15px;
+}
+
+.copy-btn{
+  margin-top:10px;
+  background:#00c6ff;
+}
+
+.loader{
+  border:4px solid #1a1a2e;
+  border-top:4px solid #ff512f;
+  border-radius:50%;
+  width:40px;
+  height:40px;
+  animation:spin 1s linear infinite;
+  margin:auto;
+  display:none;
+}
+
+@keyframes spin{
+  100%{ transform:rotate(360deg);}
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(10px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+.viral-score{
+  font-size:18px;
+  font-weight:bold;
+  margin-top:10px;
+  color:#00ffcc;
+}
+
+/* Mobile Responsive */
+@media(max-width:768px){
+  h1{font-size:22px;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🔥 Viral Reel Script Generator (Premium)</h1>
+
+<div class="card">
+  <input type="text" id="niche" placeholder="Enter Niche (Fitness, Cafe, Business)">
+  <input type="text" id="topic" placeholder="Enter Topic (Weight Loss, Growth Tips)">
+  
+  <select id="tone">
+    <option>Motivational</option>
+    <option>Funny</option>
+    <option>Luxury</option>
+    <option>Sales</option>
+  </select>
+
+  <button onclick="generateReels()">Generate Viral Scripts</button>
+</div>
+
+<div class="card">
+  <div class="loader" id="loader"></div>
+  <div id="results"></div>
+</div>
+
+</div>
+
+<script>
+function generateReels(){
+
+  let niche = document.getElementById("niche").value || "Business";
+  let topic = document.getElementById("topic").value || "Growth Tips";
+  let tone = document.getElementById("tone").value;
+
+  let results = document.getElementById("results");
+  let loader = document.getElementById("loader");
+
+  results.innerHTML="";
+  loader.style.display="block";
+
+  setTimeout(()=>{
+
+    loader.style.display="none";
+
+    for(let i=1;i<=5;i++){
+
+      let hook = `STOP Scrolling! 🔥 ${tone} truth about ${topic} in ${niche}!`;
+
+      let script = `
+1️⃣ Most people in ${niche} ignore this about ${topic}.
+2️⃣ That’s why they fail.
+3️⃣ Here’s the secret method you should try today.
+`;
+
+      let cta = `Follow for more ${niche} secrets 🚀`;
+
+      let hashtags = `
+#${niche.replace(" ","")}
+#${topic.replace(" ","")}
+#ViralReel
+#ExplorePage
+#TrendingNow
+`;
+
+      let fullScript = hook + "\n\n" + script + "\n" + cta + "\n\n" + hashtags;
+
+      let score = Math.floor(Math.random()*20)+80;
+
+      results.innerHTML += `
+      <div class="result-item">
+        <h3>🎬 Script Variation ${i}</h3>
+        <p>${fullScript}</p>
+        <div class="viral-score">🔥 Viral Score: ${score}/100</div>
+        <button class="copy-btn" onclick="copyText(\`${fullScript}\`)">Copy Script</button>
+      </div>
+      `;
+
+      saveHistory(fullScript,score);
+    }
+
+  },1500);
+}
+
+function copyText(text){
+  navigator.clipboard.writeText(text);
+  alert("Copied Successfully ✅");
+}
+
+function saveHistory(script,score){
+  let history = JSON.parse(localStorage.getItem("reelHistory")) || [];
+  history.push({script:script, score:score, date:new Date().toLocaleString()});
+  localStorage.setItem("reelHistory",JSON.stringify(history));
+}
+</script>
+
+</body>
+</html>
